@@ -29,10 +29,10 @@ function getComputerChoice() {
 // print answer to console
 
 function getHumanChoice() {
-    let humanChoice = prompt('Rock, Paper, or Scissors?');
-    if (humanChoice === 'Rock' || humanChoice ===  'Paper' || humanChoice === 'Scissors') {
-        console.log(humanChoice);
-        return humanChoice;
+    let choice = prompt('Rock, Paper, or Scissors?');
+    if (choice === 'Rock' || choice ===  'Paper' || choice === 'Scissors') {
+        console.log(choice);
+        return choice;
         } else {
         console.log('Not a valid answer!');
         alert('Not a valid answer!');
@@ -56,6 +56,7 @@ let computerScore = 0;
 
 let humanChoice = getHumanChoice();
 let computerChoice = getComputerChoice();
+
 function playRound(humanChoice, computerChoice) {
 
 }
