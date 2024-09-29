@@ -32,7 +32,7 @@ function getHumanChoice() {
     } else {
         console.log('Not a valid answer!');
         alert('Not a valid answer!');
-        getHumanChoice();
+        return getHumanChoice();
     }
 }
  
@@ -59,7 +59,7 @@ function playRound(humanChoice, computerChoice) {
     if (computerChoice === humanChoice) {
         console.log(`Its a tie! You both picked ${humanChoice}!`);
    } else if ((humanChoice === 'rock' && computerChoice === 'scissors') || (humanChoice === 'paper' && computerChoice === 'rock') || (humanChoice === 'scissors' && computerChoice === 'paper')) {
-        console.log(`You win! ${humanChoice} beats ${computerChoice}!}`);
+        console.log(`You win! ${humanChoice} beats ${computerChoice}!`);
         humanScore++;
    } else {
         console.log(`You lost! ${computerChoice} beats ${humanChoice}!`);
