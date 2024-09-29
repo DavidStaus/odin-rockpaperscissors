@@ -29,15 +29,15 @@ function getComputerChoice() {
 // print answer to console
 
 function getHumanChoice() {
-    let choice = prompt('Rock, Paper, or Scissors?');
+    let choice = prompt('Rock, Paper, or Scissors?').charAt(0).toUpperCase;
     if (choice === 'Rock' || choice ===  'Paper' || choice === 'Scissors') {
         console.log(choice);
         return choice;
-        } else {
-        console.log('Not a valid answer!');
-        alert('Not a valid answer!');
-        getHumanChoice();
-        }
+    } else {
+    console.log('Not a valid answer!');
+    alert('Not a valid answer!');
+    getHumanChoice();
+    }
 }
 
 // init 2 variables called humanScore and computerScore
@@ -47,19 +47,34 @@ let humanScore = 0;
 let computerScore = 0;
 
 
-// take humanChoice and computerChoice and versus them
-// rock beat scissors
-// scissors beat paper
-// paper beats rock
-// output to console name of winner and why
-// winning choice score is incredmentet by 1
+// init variable humanChoice to be equal getHumanChoice
+// init variable computerChoice to be equal getHumanChoice
+// call a funtion called playRound that takes parameters humanChoice and computerChoice
+// if humanChoice === computerChoice return 'tie'
+// if humanChoice === "Rock" && computerChoice === 'Scissors' return 'win''
+// if humanChoice === "Paper" && computerChoice === 'Rock' return 'win'
+// if humanChoice === "Scissors" && computerChoice === 'Paper' return 'win'
+// else return 'loss'
+// return computer/human winner
+
+function playRound(humanChoice, computerChoice) {
+    if (computerChoice === humanChoice) {
+        console.log(`Its a tie! You both picked ${humanChoice}!`);
+        return 'Tie';
+   } else if ((humanChoice === 'Rock' && computerChoice === 'Scissors') || (humanChoice === 'Paper' && computerChoice === 'Rock') || (humanChoice === 'Scissors' && computerChoice === 'Paper')) {
+        console.log(`You win! ${humanChoice} beats ${computerChoice}!}`);
+        return 'humanWin!';
+   } else {
+        console.log(`You lost! ${computerChoice} beats ${humanChoice}!`);
+        return 'computerWin';
+   }
+}
+
+
+getComputerChoice();
 
 let humanChoice = getHumanChoice();
 let computerChoice = getComputerChoice();
 
-function playRound(humanChoice, computerChoice) {
+playRound(humanChoice, computerChoice);
 
-}
-
-// Running code //
-playRound()
