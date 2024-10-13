@@ -119,6 +119,8 @@ function playRound(e) {
 
     let humanChoice = e.target.textContent.toLowerCase();
     let computerChoice = getComputerChoice();
+    let capitalizedComputerChoice = computerChoice[0].toUpperCase() + computerChoice.slice(1);
+    let capitalizedHumanChoice = humanChoice[0].toUpperCase() + humanChoice.slice(1);
     
     comChoiceText.textContent = `Computer chose ${computerChoice}.`;
 
@@ -128,10 +130,10 @@ function playRound(e) {
     (humanChoice === 'rock' && computerChoice === 'scissors') 
     || (humanChoice === 'paper' && computerChoice === 'rock') 
     || (humanChoice === 'scissors' && computerChoice === 'paper')) {
-        resultOfRound.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
+        resultOfRound.textContent = `You win! ${capitalizedHumanChoice} beats ${computerChoice}!`;
         humanScore++;
    } else {
-        resultOfRound.textContent = `You lost! ${computerChoice} beats ${humanChoice}!`;
+        resultOfRound.textContent = `You lost! ${capitalizedComputerChoice} beats ${humanChoice}!`;
         computerScore++;
    }
    scoreBox.textContent = `You: ${humanScore} \n Computer: ${computerScore}`;
