@@ -145,6 +145,23 @@ function playRound(e) {
     console.log('You lost to a bad javascript. Humiliating.');
     alert('You lost to a bad javascript. Humiliating.');
     }
+
+    if (humanScore === 5 || computerScore === 5) {
+        buttons.removeEventListener('click', playRound);
+        const reset = document.createElement('button');
+        reset.className = 'reset';
+        reset.textContent = 'Reset';
+        document.querySelector('.container').appendChild(reset);
+        reset.addEventListener('click', (e) => {
+            humanScore = 0;
+            computerScore = 0;
+            buttons.addEventListener('click', playRound);
+            scoreBox.textContent = `You: ${humanScore} \n Computer: ${computerScore}`;
+            resultOfRound.textContent = ``;
+            comChoiceText.textContent = ``;
+            reset.remove();
+        })
+    }
 }
 
 function getComputerChoice() {
